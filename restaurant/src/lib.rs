@@ -3,7 +3,7 @@ pub fn add(left: u64, right: u64) -> u64 {
 }
 
 #[cfg(test)]
-mod front_of_house {
+pub mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
         fn seat_at_table() {}
