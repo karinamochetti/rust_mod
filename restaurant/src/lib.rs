@@ -1,23 +1,33 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+
+use std::{cmp::Ordering, io, self};
+
 
 #[cfg(test)]
 pub mod front_of_house {
+
     pub mod hosting {
         pub fn add_to_waitlist() {}
         fn seat_at_table() {}
     }
+
     mod serving {
         fn take_order() {}
         fn serve_order() {}
         fn take_payment() {}
     }
-    fn eat_at_restaurant() {
+
+    fn eat() {
         front_of_house::hosting::add_to_waitlist();
         crate::front_of_house::hosting::add_to_waitlist();
     }
+
 }
+
+// could not find `front_of_house` in the crate root (???)
+pub use crate::front_of_house::hosting;
 
 fn deliver_order() {}
 
@@ -55,5 +65,6 @@ pub fn eat_at_restaurant() {
     println!("I'd like {} toast please", meal.toast);
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
+    hosting::add_to_waitlist();
 }
 
